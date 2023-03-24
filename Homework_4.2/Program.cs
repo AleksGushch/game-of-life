@@ -46,7 +46,6 @@ namespace GameOfLife
 
                     if (cells[i, j])
                     {
-                        if (numOfAliveNeighbors < 3)
                         {
                             cells[i, j] = false;
                         }
@@ -136,6 +135,7 @@ namespace GameOfLife
         // Ограничения игры
         private const int Heigth = 10;
         private const int Width = 30;
+        private const uint MaxRuns = 100;
 
         private static void Main(string[] args)
         {
@@ -146,6 +146,7 @@ namespace GameOfLife
             do
             {
                 runs++;
+                btn = Console.ReadKey();
                 sim.DrawAndGrow();
                 btn = Console.ReadKey(true);
             }
